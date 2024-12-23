@@ -1,4 +1,4 @@
-import { FilterQuery, Model, Types } from 'mongoose';
+import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
 import { AbstractDocument } from './abstract.schema';
 import { Logger } from '@nestjs/common';
 
@@ -30,7 +30,7 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
 
   async findOneAndUpdate(
     filterQuery: FilterQuery<TDocument>,
-    update: Partial<TDocument>,
+    update: UpdateQuery<TDocument>,
   ): Promise<TDocument> {
     const document = await this.model
       .findOneAndUpdate(filterQuery, update, {
