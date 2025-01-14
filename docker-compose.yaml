@@ -9,6 +9,8 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/src/app
+    env_file:
+      - ./apps/reservations/.env
   auth:
     build:
       context: .
@@ -19,6 +21,8 @@ services:
       - '3001:3001'
     volumes:
       - .:/usr/src/app
+    env_file:
+      - ./apps/auth/.env
   mongo:
     image: mongo
 
