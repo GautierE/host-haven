@@ -1,7 +1,7 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UsersRepository } from './users.repository';
+import { Injectable, UnauthorizedException } from "@nestjs/common";
+import * as bcrypt from "bcryptjs";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UsersRepository } from "./users.repository";
 
 @Injectable()
 export class UsersService {
@@ -19,7 +19,7 @@ export class UsersService {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Email/password is not valid');
+      throw new UnauthorizedException("Email/password is not valid");
     }
 
     return user;
