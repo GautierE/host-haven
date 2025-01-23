@@ -1,13 +1,13 @@
 import { ValidationPipe } from "@nestjs/common";
+import { Logger } from "nestjs-pino";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
-import { Transport } from "@nestjs/microservices";
 import * as cookieParser from "cookie-parser";
 import { Transport } from "@nestjs/microservices";
+import { AuthModule } from "./auth.module";
 
 async function bootstrap() {
-    const app = await NestFactory.create(AuthModule);
-    const configService = app.get(ConfigService);
+  const app = await NestFactory.create(AuthModule);
 
   const configService = app.get(ConfigService);
 
