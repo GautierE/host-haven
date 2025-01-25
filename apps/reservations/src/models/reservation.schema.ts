@@ -1,5 +1,5 @@
-import { AbstractDocument } from '@app/common';
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { AbstractDocument } from "@app/common";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema({ versionKey: false })
 export class ReservationDocument extends AbstractDocument {
@@ -14,9 +14,6 @@ export class ReservationDocument extends AbstractDocument {
 
   @Prop()
   userId: string;
-
-  @Prop()
-  placeId: string;
 
   @Prop()
   invoiceId: string;
