@@ -10,7 +10,7 @@ export class PaymentsService {
   private readonly stripe = new Stripe(
     this.configService.get("STRIPE_SECRET_KEY"),
     {
-      apiVersion: "2024-12-18.acacia",
+      apiVersion: "2025-01-27.acacia",
     },
   );
 
