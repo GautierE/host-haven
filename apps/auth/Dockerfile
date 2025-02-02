@@ -25,8 +25,10 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
 
+COPY apps/auth/package.json ./apps/auth/
+
 RUN npm install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "dist/apps/auth/main"]
+CMD ["node", "dist/apps/auth/src/main"]

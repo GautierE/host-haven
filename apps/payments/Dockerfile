@@ -25,8 +25,10 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
 
+COPY apps/payments/package.json ./apps/payments/
+
 RUN npm install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "dist/apps/payments/main"]
+CMD ["node", "dist/apps/payments/src/main"]

@@ -14,7 +14,7 @@ COPY libs libs
 
 RUN cd apps/notifications && npm install
 
-RUN npm run build
+RUN npm run build notifications
 
 FROM node:alpine AS production
 
@@ -26,8 +26,10 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
 
+COPY apps/notifications/package.json ./apps/notifications/
+
 RUN npm install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "dist/apps/notifications/main"]
+CMD ["node", "dist/apps/notifications/src/main"]
