@@ -11,7 +11,6 @@ import { NotificationsService } from "./notifications.service";
       isGlobal: true,
       validationSchema: Joi.object({
         TCP_PORT: Joi.number().required(),
-
         SMTP_USER: Joi.string().required(),
         GOOGLE_OAUTH_CLIENT_ID: Joi.string().required(),
         GOOGLE_OAUTH_CLIENT_SECRET: Joi.string().required(),
